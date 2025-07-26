@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Client Dashboard</title>
+  <script src="script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-10">
+  <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+    <h1 class="text-2xl font-bold mb-4">Client Dashboard</h1>
+    <input type="text" id="search" placeholder="Search for profession..." class="w-full mb-4 px-3 py-2 border rounded" />
+       <main class="flex display p-5 gap-5 -mt-10">
+                <a href="home.html" class="bold text-2xl text-red-500">Home</a>
+        <a href="worker.html" class="bold text-2xl text-red-500">Worker</a>
+        <a href="client.html" class="bold text-2xl text-red-500">Client</a>
+        <a href="register.html" class="bold text-2xl text-red-500">Register</a>
+        <a href="login.html" class="bold text-2xl text-red-500">Login</a>
+    </main>
+    <ul id="worker-list" class="space-y-2">
+      <li class="p-3 border rounded bg-green-50">Ali - Plumber</li>
+      <li class="p-3 border rounded bg-green-50">Sara - Electrician</li>
+      <li class="p-3 border rounded bg-green-50">Ahmed - Mechanic</li>
+    </ul>
+  </div>
+  <div class="fixed bottom-0 w-full max-w-7xl mx-auto px-4 text-center bg-gray-100">
+    <p>&copy; 2025 Worker Connect. All rights reserved.</p>
+    <p class="mt-2 text-sm">Made with ❤️ to connect workers and clients.</p>
+    <div class="text-2xl font-bold">
+      <span class="gap-5 text-red-500">Copyright:</span>
+      <span class="gap-5 text-red-500">Contact:</span>
+      <span class="gap-5 text-red-500">Faq:</span>
+    </div>
+  </div>
+</body>
+</html>

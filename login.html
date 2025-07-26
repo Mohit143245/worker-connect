@@ -1,0 +1,107 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <script src="script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-10">
+       <main class="flex display p-5 gap-5 -mt-10">
+                <a href="home.html" class="bold text-2xl text-red-500">Home</a>
+        <a href="worker.html" class="bold text-2xl text-red-500">Worker</a>
+        <a href="client.html" class="bold text-2xl text-red-500">Client</a>
+        <a href="register.html" class="bold text-2xl text-red-500">Register</a>
+        <a href="login.html" class="bold text-2xl text-red-500">Login</a>
+    </main>
+
+  <div class="max-w-md mx-auto bg-white p-8 rounded shadow">
+    <h2 class="text-2xl font-bold mb-4">Login</h2>
+    <form id="login-form" class="space-y-4">
+      <input id="login-email" type="email" placeholder="Email" class="w-full border px-3 py-2" required />
+      <input id="login-password" type="password" placeholder="Password" class="w-full border px-3 py-2" required />
+      <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded">Login</button>
+    </form>
+  </div>
+  <div class="fixed bottom-0 w-full max-w-7xl mx-auto px-4 text-center bg-gray-100">
+
+    <p>&copy; 2025 Worker Connect. All rights reserved.</p>
+    <p class="mt-2 text-sm">Made with ❤️ to connect workers and clients.</p>
+    <div class="text-2xl font-bold">
+      <span class="gap-5 text-red-500">Copyright:</span>
+      <span class="gap-5 text-red-500">Contact:</span>
+      <span class="gap-5 text-red-500">Faq:</span>
+    </div>
+  </div>
+</body>
+</html>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('register-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const role = new URLSearchParams(window.location.search).get('role');
+      const user = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        location: document.getElementById('location').value,
+        role: role,
+        profession: role === 'worker' ? document.getElementById('profession-field').value : null
+      };
+
+      let users = JSON.parse(localStorage.getItem('users')) || [];
+      users.push(user);
+      localStorage.setItem('users', JSON.stringify(users));
+
+      alert('Registered Successfully!');
+      window.location.href = 'login.html';
+    });
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.getElementById('login-form');
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (user) {
+        localStorage.setItem('loggedInUser', JSON.stringify(user));
+        window.location.href = user.role === 'worker' ? 'dashboard-worker.html' : 'dashboard-client.html';
+      } else {
+        alert('Invalid credentials');
+      }
+    });
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const workerList = document.getElementById('worker-list');
+  const search = document.getElementById('search');
+
+  if (workerList && search) {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const workers = users.filter(u => u.role === 'worker');
+
+    function renderList(filter = "") {
+      workerList.innerHTML = '';
+      workers
+        .filter(w => w.profession.toLowerCase().includes(filter.toLowerCase()))
+        .forEach(w => {
+          const li = document.createElement('li');
+          li.className = "p-3 border rounded bg-green-50";
+          li.innerHTML = `<strong>${w.name}</strong> — ${w.profession}<br><span class="text-sm">${w.location}</span>`;
+          workerList.appendChild(li);
+        });
+    }
+
+    renderList();
+    search.addEventListener('input', () => renderList(search.value));
+  }
+  <script/>
+});

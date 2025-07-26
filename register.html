@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <script src="script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-10">
+     <main class="flex display p-5 gap-5 -mt-10">
+          <a href="home.html" class="bold text-2xl text-red-500">Home</a>
+        <a href="worker.html" class="bold text-2xl text-red-500">Worker</a>
+        <a href="client.html" class="bold text-2xl text-red-500">Client</a>
+        <a href="register.html" class="bold text-2xl text-red-500">Register</a>
+        <a href="login.html" class="bold text-2xl text-red-500">Login</a>
+    </main>
+
+  <div class="max-w-md mx-auto bg-white p-8 rounded shadow">
+    <h2 id="form-title" class="text-2xl font-bold mb-4">Register</h2>
+    <form id="register-form" class="space-y-4">
+      <input type="text" placeholder="Full Name" class="w-full border border-gray-300 rounded px-3 py-2" required />
+      <input type="email" placeholder="Email" class="w-full border border-gray-300 rounded px-3 py-2" required />
+      <input type="text" id="profession-field" placeholder="Profession (e.g., Plumber, Mechanic)" class="w-full border border-gray-300 rounded px-3 py-2 hidden" />
+      <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Register</button>
+    </form>
+  </div>
+  <div class="fixed bottom-0 w-full max-w-7xl mx-auto px-4 text-center bg-gray-100">
+
+    <p>&copy; 2025 Worker Connect. All rights reserved.</p>
+    <p class="mt-2 text-sm">Made with ❤️ to connect workers and clients.</p>
+    <div class="text-2xl font-bold">
+      <span class="gap-5 text-red-500">Copyright:</span>
+      <span class="gap-5 text-red-500">Contact:</span>
+      <span class="gap-5 text-red-500">Faq:</span>
+    </div>
+  </div>
+</body>
+</html>
